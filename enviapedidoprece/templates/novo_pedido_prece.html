@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'cabecalho' %}
+    <link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
+
+{% endblock 'cabecalho' %}
+
+{% block 'conteudo' %}
+
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            
+            <div class="col-md">
+                
+                <div class="box-form">
+                    <form action="{% url 'enviapedidogi' %}" method="POST"> {% csrf_token %}
+                        <h3>Novo Pedido de Prece</h3>
+                        {% if messages %}
+                            <br>
+                            {% for message in messages %}
+                                <section class="alert {{message.tags}}">
+                                    {{message}}
+                                </section>
+                            {% endfor %}
+                        {% endif %}
+                        <br>
+                        <label>Nome do Acolhido</label>
+                        <input type="text" class="form-control" placeholder="nome do acolhido" name="acolhido">
+                        <br>
+                        <label>Motivo</label>
+                        <textarea class="form-control" name="motivo"></textarea>
+                        <br>
+                        <div class="row">
+                            
+                                <div class="col-md">
+                                    <label for="">Estado do Acolhido</label>
+                                    <select class="form-select" name="estado">
+                                        {% for estado in estados %}
+                                                <option value="{{estado.0}}">{{estado.1}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md">
+
+                                </div>
+                            
+                        </div>
+                        <br>
+                        <input type="submit" value="Enviar" class="btn-cadastro">
+                        <br>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md">
+                <form action="{% url "enviapedido" %}" method="GET">
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="">Estado do Acolhido</label>
+                            <select name="estado" id="" class="form-select">
+                                <option value="">Ambos</option>
+                                {% for estado in estados %}
+                                    <option value="{{estado.0}}">{{estado.1}}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                        <div class="col-md">
+                        </div>
+                        <div class="col-md">
+                            <br>
+                            <input type="submit" style="width: 100%" value="Filtrar" class="btn-cadastro">
+                        </div>
+                    </div>
+
+                </form>
+
+                <br>
+                <br>
+                {% for pedido in pedidospreces %}
+                    <div class="box-new-flashcard">
+                        <div class="pedidoprece">
+
+                            <a href=""><i class='icone-exit bx bx-x-circle'></i></a>
+                            <br>
+                            <br>
+                            <div class="flashcard-box-item">
+                                <p class="pedidoprece-item">{{pedido.nome_acolhido}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock 'conteudo' %}
