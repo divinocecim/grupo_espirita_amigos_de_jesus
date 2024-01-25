@@ -5,6 +5,7 @@
     <link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
+    <link href="{% static 'flashcard/css/botoes.css' %}" rel="stylesheet">
 
 {% endblock 'cabecalho' %}
 
@@ -18,7 +19,7 @@
             <div class="col-md">
                 
                 <div class="box-form">
-                    <form action="{% url 'enviapedidogi' %}" method="POST"> {% csrf_token %}
+                    <form action="{% url 'enviapedido' %}" method="POST"> {% csrf_token %}
                         <h3>Novo Pedido de Prece</h3>
                         {% if messages %}
                             <br>
@@ -65,7 +66,7 @@
                         <div class="col-md">
                             <label for="">Estado do Acolhido</label>
                             <select name="estado" id="" class="form-select">
-                                <option value="">Ambos</option>
+                                <option value="">Todos</option>
                                 {% for estado in estados %}
                                     <option value="{{estado.0}}">{{estado.1}}</option>
                                 {% endfor %}
@@ -73,10 +74,12 @@
                             </select>
                         </div>
                         <div class="col-md">
+                            <br>
+                            <input type="submit" style="width: 50%" value="Limpar " class="btn-limpar">
                         </div>
                         <div class="col-md">
                             <br>
-                            <input type="submit" style="width: 100%" value="Filtrar" class="btn-cadastro">
+                            <input type="submit" style="width: 50%" value="Filtrar" class="btn-cadastro">
                         </div>
                     </div>
 
@@ -84,22 +87,23 @@
 
                 <br>
                 <br>
-                {% for pedido in pedidospreces %}
-                    <div class="box-new-flashcard">
-                        <div class="pedidoprece">
-
-                            <a href=""><i class='icone-exit bx bx-x-circle'></i></a>
-                            <br>
-                            <br>
-                            <div class="flashcard-box-item">
-                                <p class="pedidoprece-item">{{pedido.nome_acolhido}}</p>
-                            </div>
-                            
-                        </div>
+                
+                     <div class="box-new-flashcard">
+                        <div class="pedidoprece"> 
+                            {% for pedido in pedidospreces %}
+                            {% comment %} <a href=""><i class='icone-exit bx bx-x-circle'></i></a>
+                            <br> 
+                                <br>
+                                {% endcomment %}
+                                <div class="flashcard-box-item">
+                                    <p class="pedidoprece-item">{{pedido.nome_acolhido}}</p>
+                                </div>
+                            {% endfor %} 
+                        </div> 
                     </div>
                     <br>
                     <br>
-                {% endfor %}
+              
 
             </div>
         </div>

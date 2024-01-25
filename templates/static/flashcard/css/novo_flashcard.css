@@ -1,5 +1,5 @@
 .box-new-flashcard{
-    width: 70%;
+    width: 100%;
     margin: auto;
     
 }
@@ -10,13 +10,15 @@
 }
 
 .flashcard-box-item{
-    text-align: center;
+    text-align: start;
 }
 
 .flashcard p{
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    text-align: start;
+
 }
 
 .flashcard-facil{
@@ -29,8 +31,19 @@
 
     border-left: 20px solid #E8910E;
 
-}
-
+}   
+.btn-limpar{
+    padding: 10px;
+    background-color: #000000 ;
+    border: none;
+    border: 1px solid #58fcd5;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+   }   
+{% comment %}
 .flashcard-dificil{
 
     border-left: 20px solid #FE0000;
@@ -50,8 +63,8 @@
     display: none;
 }
 
-.icone-exit{
+ .icone-exit{
     float: right;
     font-size: 25px;
     color: orangered;
-}
+} {% endcomment %}
