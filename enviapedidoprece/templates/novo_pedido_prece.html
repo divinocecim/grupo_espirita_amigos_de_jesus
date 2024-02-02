@@ -6,6 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
     <link href="{% static 'flashcard/css/botoes.css' %}" rel="stylesheet">
+    <a href="{% url 'logout' %}" target='_self' rel='nofollow'style="color: #FFF">Sair</a>
 
 {% endblock 'cabecalho' %}
 
@@ -15,7 +16,7 @@
         <br>
         <br>
         <div class="row">
-            
+
             <div class="col-md">
                 
                 <div class="box-form">
@@ -37,9 +38,9 @@
                         <textarea class="form-control" name="motivo"></textarea>
                         <br>
                         <div class="row">
-                            
+                           
                                 <div class="col-md">
-                                    <label for="">Estado do Acolhido</label>
+                                    <label for="">Encarnado ou Desencarnado?</label>
                                     <select class="form-select" name="estado">
                                         {% for estado in estados %}
                                                 <option value="{{estado.0}}">{{estado.1}}</option>

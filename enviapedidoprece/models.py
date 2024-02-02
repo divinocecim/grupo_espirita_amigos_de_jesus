@@ -8,5 +8,5 @@ class PedidoPrece(models.Model):
     id_solicitante = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     data_pedido = models.DateTimeField()
     nome_acolhido = models.CharField(max_length=100)
-    acolhido_encarnado = models.CharField(max_length=1, choices=ESTADO_ACOLHIDO_CHOICES)
+    acolhido_encarnado = models.CharField(max_length=1, default='S',choices=ESTADO_ACOLHIDO_CHOICES)
     motivo_prece = models.TextField(null=True)

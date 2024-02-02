@@ -4,14 +4,18 @@ from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.contrib import messages
 from django.contrib import auth
+from .models import Mediuns
 
 def cadastro(request):
+    segundas = Mediuns.ESTUDO_EVANGELHO_CHOICES
+    print(segundas)
     if request.method == 'GET':
-        return render(request, 'cadastro.html')
+        return render(request, 'cadastro.html', {'segundas': segundas})
     elif request.method == 'POST':
-        username = request.POST.get('username')
+        username = request.POST.get('celphone')
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
+        participa_estudo_evangelho = request.POST.get('segunda')
 
         if not senha == confirmar_senha:
             print('Senha e confirmar senha não coincidem...')
@@ -27,8 +31,17 @@ def cadastro(request):
         try:
             User.objects.create_user(
                 username= username,
-                password= senha
-            )             
+                password= senha,
+            )       
+            mediuns =  Mediuns(
+                nome = request.POST.get('username'),
+                atuante_no_grupo = 'N',
+                participa_estudo_evangelho = request.POST.get('segunda'),
+                celphone = request.POST.get('celphone')
+            )     
+            
+            mediuns.save()
+
             return redirect('/usuarios/logar')
 
         except:

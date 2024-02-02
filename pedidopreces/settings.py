@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -82,6 +81,10 @@ WSGI_APPLICATION = 'pedidopreces.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+#  "HOST": "postgres://admin:r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP@dpg-cmttreuct0pc73et8k70-a.oregon-postgres.render.com/geaj",
+# "USER": "postgres",
+# "PASSWORD":"r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP",
+
 DATABASES = {
     "default":{
         "ENGINE": "django.db.backends.postgresql",
