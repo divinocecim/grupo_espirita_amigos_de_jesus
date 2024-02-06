@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": "geaj",
         "USER": "admin",
         "PASSWORD": "r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP",
-        "HOST": "dpg-cmttreuct0pc73et8k70-a",
+        "HOST": "dpg-cmttreuct0pc73et8k70-a.oregon-postgres.render.com",
         "PORT": "5432",
     }
 }
