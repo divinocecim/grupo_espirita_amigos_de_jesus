@@ -81,17 +81,14 @@ WSGI_APPLICATION = 'pedidopreces.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-#  "HOST": "postgres://admin:r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP@dpg-cmttreuct0pc73et8k70-a.oregon-postgres.render.com/geaj",
-# "USER": "postgres",
-# "PASSWORD":"r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP",
 
 DATABASES = {
     "default":{
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "geaj",
-        "USER": "postgres",
-        "PASSWORD": "fiote",
-        "HOST": "localhost",
+        "USER": "admin",
+        "PASSWORD": "r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP",
+        "HOST": "dpg-cmttreuct0pc73et8k70-a",
         "PORT": "5432",
     }
 }
