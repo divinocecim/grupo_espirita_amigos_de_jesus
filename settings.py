@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$2a46(csne7$8ck6_%mjzc1zmf=!(=^25$@$r*p1&eo#37iuf7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://geaj-preces-online.onrender.com']
 
 
 # Application definition
@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": "geaj",
         "USER": "admin",
         "PASSWORD": "r9zvo9T6wdEVHTbRpL8bfNpNVTB19mCP",
-        "HOST": "dpg-cmttreuct0pc73et8k70-a",
+        "HOST": "dpg-cmttreuct0pc73et8k70-a.oregon-postgres.render.com",
         "PORT": "5432",
     }
 }
@@ -128,7 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'templates/static'),
+]
 STATIC_ROOT = os.path.join('static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
